@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import logoLight from './assets/logo_light.png'; // Adjust the path if needed
+import logoDark from './assets/logo_dark.png'; // Adjust the path if needed
 
 function Header() {
   useEffect(() => {
@@ -36,14 +38,36 @@ function Header() {
   return (
     <header className="text-lightText dark:text-darkText font-sans bg-background dark:bg-darkBackground body-font">
       <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center bg-transparent">
-        <h2 className="text-2xl text-lightText dark:text-darkText font-extrabold">
-          Saifullah
-        </h2>
-        <nav className="md:ml-auto md:mr-auto flex flex-wrap items-end text-base justify-end h-5 bg-transparent">
-          <a className="mr-5 dark:hover:text-white hover:cursor-pointer">Home</a>
-          <a className="mr-5 dark:hover:text-white hover:cursor-pointer">About Me</a>
-          <a className="mr-5 dark:hover:text-white hover:cursor-pointer">My Skills</a>
-          <a className="mr-5 dark:hover:text-white hover:cursor-pointer">Projects</a>
+        {/* Logo Section */}
+        <div className="flex items-center">
+        <img 
+          src={logoDark} 
+          alt="Logo" 
+          className="hidden dark:block w-32" // Adjust size as needed
+        />
+        <img 
+          src={logoLight} 
+          alt="Logo" 
+          className="block dark:hidden w-32" // Adjust size as needed
+        />
+        </div>
+        <nav className="ml-auto flex flex-wrap items-end text-base justify-end h-5 bg-transparent">
+          <a className="relative mr-5 group hover:text-purple-500 hover:cursor-pointer">
+            Home
+            <span className="block h-0.5 bg-purple-500 transition-all duration-300 scale-x-0 group-hover:scale-x-100"></span>
+          </a>
+          <a className="relative mr-5 group hover:text-purple-500 hover:cursor-pointer">
+            About Me
+            <span className="block h-0.5 bg-purple-500 transition-all duration-300 scale-x-0 group-hover:scale-x-100"></span>
+          </a>
+          <a className="relative mr-5 group hover:text-purple-500 hover:cursor-pointer">
+            My Skills
+            <span className="block h-0.5 bg-purple-500 transition-all duration-300 scale-x-0 group-hover:scale-x-100"></span>
+          </a>
+          <a className="relative mr-5 group hover:text-purple-500 hover:cursor-pointer">
+            Projects
+            <span className="block h-0.5 bg-purple-500 transition-all duration-300 scale-x-0 group-hover:scale-x-100"></span>
+          </a>
         </nav>
         <div className="flex flex-col justify-center ml-3">
           <input
