@@ -10,10 +10,10 @@ export default {
     extend: {
       fontFamily: {
         mono: ['"JetBrains Mono"', "monospace"],
-        sans: ['"Inter"', "sans-serif"],
+        sans: ['"Rubik"', "sans-serif"],
       },
       colors: {
-        primary: "#1A73E8",
+        primary: "#7B1FA2",
         secondary: "#FBBF24",
         background: "#f8fafc",
         darkBackground: "#1E1E1E",
@@ -26,7 +26,6 @@ export default {
         md: "768px",
         lg: "1024px",
         xl: "1280px",
-        "2xl": "1536px",
       },
       spacing: {
         72: "18rem",
@@ -45,9 +44,4 @@ export default {
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"), // Plugin for better typography
-    require("@tailwindcss/forms"), // Useful for form styling
-    require("@tailwindcss/aspect-ratio"), // Aspect ratio plugin for media
-  ],
 };

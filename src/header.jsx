@@ -34,26 +34,23 @@ function Header() {
   }, []);
 
   return (
-    <header className="text-gray-900 dark:text-gray-300 bg-white hover:cursor-grab dark:bg-gray-800 body-font">
+    <header className="text-lightText dark:text-darkText font-sans bg-background dark:bg-darkBackground body-font">
       <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center bg-transparent">
-        <h2 className="text-2xl text-gray-900 dark:text-white font-extrabold">
+        <h2 className="text-2xl text-lightText dark:text-darkText font-extrabold">
           Saifullah
         </h2>
-        <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center h-5 bg-transparent">
-          <a className="mr-5 hover:text-white" href="/home">
-            Home
-          </a>
-          <a className="mr-5 hover:text-white">About Me</a>
-          <a className="mr-5 hover:text-white">Resume</a>
-          <a className="mr-5 hover:text-white">My Skills</a>
-          <a className="mr-5 hover:text-white">Projects</a>
+        <nav className="md:ml-auto md:mr-auto flex flex-wrap items-end text-base justify-end h-5 bg-transparent">
+          <a className="mr-5 dark:hover:text-white hover:cursor-pointer">Home</a>
+          <a className="mr-5 dark:hover:text-white hover:cursor-pointer">About Me</a>
+          <a className="mr-5 dark:hover:text-white hover:cursor-pointer">My Skills</a>
+          <a className="mr-5 dark:hover:text-white hover:cursor-pointer">Projects</a>
         </nav>
         <div className="flex flex-col justify-center ml-3">
           <input
             type="checkbox"
             name="light-switch"
             className="light-switch sr-only"
-            id="light-switch" // Added ID here
+            id="light-switch"
           />
           <label className="relative cursor-pointer p-2" htmlFor="light-switch">
             <svg
@@ -88,6 +85,11 @@ function Header() {
             </svg>
             <span className="sr-only">Switch to light / dark version</span>
           </label>
+        </div>
+        <div className="px-3">
+          <a href="https://github.com/Saifullah-Balghari">
+            <button type="button" className="text-darkText bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-xl text-sm px-3 py-2 text-center me-0 mb-0">GitHub Profile</button>
+          </a>
         </div>
       </div>
     </header>
