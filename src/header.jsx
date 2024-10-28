@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import logoLight from './assets/logo_light.png'; // Adjust the path if needed
-import logoDark from './assets/logo_dark.png'; // Adjust the path if needed
+import logoLight from './assets/logo_light.png';
+import logoDark from './assets/logo_dark.png';
 
 function Header() {
   useEffect(() => {
@@ -43,12 +43,12 @@ function Header() {
         <img 
           src={logoDark} 
           alt="Logo" 
-          className="hidden dark:block w-32" // Adjust size as needed
+          className="hidden dark:block w-20"
         />
         <img 
           src={logoLight} 
           alt="Logo" 
-          className="block dark:hidden w-32" // Adjust size as needed
+          className="block dark:hidden w-20"
         />
         </div>
         <nav className="ml-auto flex flex-wrap items-end text-base justify-end h-5 bg-transparent">

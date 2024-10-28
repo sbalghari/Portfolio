@@ -13,7 +13,7 @@ export default {
         sans: ['"Rubik"', "sans-serif"],
       },
       colors: {
-        primary: "#7B1FA2",
+        primary: "#9333ea",
         secondary: "#FBBF24",
         background: "#f8fafc",
         darkBackground: "#1E1E1E",

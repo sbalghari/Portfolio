@@ -51,6 +51,72 @@ function SkillsSection() {
           <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700"></span>
         </p>
       </div>
+      <div className="p-0 m-5 flex justify-items-center justify-center items-center">
+        <div className="w-96 h-64 p-5 m-5 border-double rounded-xl flex flex-row row-span-2 justify-center bg-gray-200 dark:bg-gray-600">
+          <div className="justify-center items-center flex-col col-auto">
+            <p className="text-xl text-lightText dark:text-darkText bg-transparent dark:bg-transparent">
+              Frontend Development
+            </p>
+          </div>
+          <div className="flex justify-evenly items-center flex-col col-auto">  
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">HTML</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">CSS</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">Javascript</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">React JS</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">TailwindCss</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">Bootstrap</a>
+          </div>
+        </div>
+        <div className="w-96 h-64 p-5 m-5 border-double rounded-xl flex flex-row row-span-2 justify-center bg-gray-200 dark:bg-gray-600">
+          <div className="justify-center items-center flex-col col-auto">
+            <p className="text-xl text-lightText dark:text-darkText bg-transparent dark:bg-transparent">
+              Frontend Development
+            </p>
+          </div>
+          <div className="flex justify-evenly items-center flex-col col-auto">  
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">HTML</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">CSS</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">Javascript</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">React JS</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">TailwindCss</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">Bootstrap</a>
+          </div>
+          
+        </div>
+      </div>
+      <div className="p-0 m-5 flex justify-items-center justify-center items-center">
+        <div className="w-96 h-64 p-5 m-5 border-double rounded-xl flex flex-row row-span-2 justify-center bg-gray-200 dark:bg-gray-600">
+         <div className="justify-center items-center flex-col col-auto">
+            <p className="text-xl text-lightText dark:text-darkText bg-transparent dark:bg-transparent">
+              Libraries
+            </p>
+          </div>
+          <div className="flex justify-evenly items-center flex-col col-auto">  
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">TKinter/CTk</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">NumPY</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">Pandas</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">MatPlotLib</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">StreamLit</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">Bootstrap</a>
+          </div>
+          
+        </div>
+        <div className="w-96 h-64 p-5 m-5 border-double rounded-xl flex flex-row row-span-2 justify-center bg-gray-200 dark:bg-gray-600">
+          <div className="justify-center items-center flex-col col-auto">
+            <p className="text-xl text-lightText dark:text-darkText bg-transparent dark:bg-transparent">
+              Others
+            </p>
+          </div>
+          <div className="flex justify-evenly items-center flex-col col-auto">  
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">VS Code</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">Git</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">GitHub</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">Linux</a>
+            <a className="btn text-lightText dark:text-darkText border-2 border-darkBackground dark:border-background px-2 py-1 m-1 rounded-xl hover:bg-primary " href="#">Hyprland</a>
+          </div>
+          
+        </div>
+      </div>
     </section>
   );
 }
