@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
-import ProfilePic from "../assets/profilepic1.png";
+import ProfilePic from "../../assets/profilepic1.png";
 import { FaGithub, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa"; // FontAwesome Icons
 
 function HomeSection() {
@@ -66,7 +66,7 @@ function HomeSection() {
             <img
               className="w-full h-full rounded-full transition-transform duration-500 ease-out transform hover:scale-110"
               src={ProfilePic}
-              alt="Profile picture of Saifullah Balghari"
+              alt="Profile picture"
             />
           </div>
         </div>
@@ -76,11 +76,11 @@ function HomeSection() {
             <span className={` ${blink ? "opacity-100" : "opacity-0"}`}>
               !
             </span>
+          </h2> 
+          <h2 className="mb-2 text-4xl md:text-5xl tracking-tight font-bold text-lightText dark:text-darkText">
+            I&apos;m <span className=" text-primary">Saifullah Balghari</span>
           </h2>
-          <h2 className="mb-2 text-4xl md:text-5xl tracking-tight font-bold text-primary">
-            It&apos;s <span>Saifullah Balghari</span>
-          </h2>
-          <h2 className="mb-2 text-2xl md:text-3xl font-semibold tracking-tight">
+          <h2 className="mb-2 text-2xl md:text-3xl font-semibold tracking-tight ">
             <span className="text-lightText dark:text-darkText">I&apos;m </span>
             <span className="font-extrabold text-primary">{typingText}</span>
             <span className="cursor">|</span>

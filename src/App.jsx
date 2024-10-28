@@ -1,9 +1,9 @@
 import HeaderSection from "./header";
 import FooterSection from "./footer";
-import SkillsSection from "./sections/skills";
-import AboutSection from "./sections/about_me";
-import HomeSection from "./sections/home";
-import ProjectsSection from "./sections/projects";
+import SkillsSection from "./sections/skills/skills";
+import AboutSection from "./sections/about/about_me";
+import HomeSection from "./sections/home/home";
+import ProjectsSection from "./sections/projects/projects";
 
 import "./index.css";
 
