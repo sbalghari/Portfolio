@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
-import ProfilePic from "../../assets/profilepic1.png";
+import ProfilePic from "../../assets/icons/profilepic1.png";
 import { FaGithub, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa"; // FontAwesome Icons
 
 function HomeSection() {
@@ -8,7 +8,7 @@ function HomeSection() {
   const typingSpeed = 200;
   const wordDelay = 1500;
 
-  const words = useMemo(() => ["a software engineer", "a casual gamer", "a college student"], []);
+  const words = useMemo(() => ["a Full-Stack Developer", "a College Student", "an Aspiring ML Engineer"], []);
 
   useEffect(() => {
     const blinkInterval = setInterval(() => {
@@ -47,7 +47,7 @@ function HomeSection() {
   }, [words, typingSpeed, wordDelay]);
 
   return (
-    <section className="bg-background dark:bg-darkBackground h-screen flex items-center justify-center font-sans">
+    <section className="p-6 h-screen lg:p-12 w-auto bg-background dark:bg-darkBackground flex items-center justify-center font-sans">
       <div className="items-center mx-auto max-w-screen-xl md:grid md:grid-cols-2 sm:py-16 lg:px-6">
         <div
           className="relative mx-auto w-96 h-96 rounded-full overflow-hidden"
@@ -62,7 +62,7 @@ function HomeSection() {
             e.currentTarget.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)";
           }}
         >
-          <div className="absolute inset-0 rounded-full p-[5px] transition-transform duration-500 ease-out">
+          <div className="absolute inset-0 rounded-full p-4 transition-transform duration-500 ease-out">
             <img
               className="w-full h-full rounded-full transition-transform duration-500 ease-out transform hover:scale-110"
               src={ProfilePic}
@@ -70,15 +70,15 @@ function HomeSection() {
             />
           </div>
         </div>
-        <div className="mt-0">
+        <div className="px-4 mt-0 lg:px-0 ">
           <h2 className="mb-2 font-mono text-sm tracking-tight font-bold text-lightText dark:text-darkText">
             Hello, World
             <span className={` ${blink ? "opacity-100" : "opacity-0"}`}>
               !
             </span>
           </h2> 
-          <h2 className="mb-2 text-4xl md:text-5xl tracking-tight font-bold text-lightText dark:text-darkText">
-            I&apos;m <span className=" text-primary">Saifullah Balghari</span>
+          <h2 className="mb-2 text-4xl lg:text-5xl tracking-tight font-bold text-lightText dark:text-darkText">
+            <span className=" text-primary">Saifullah Balghari</span>
           </h2>
           <h2 className="mb-2 text-2xl md:text-3xl font-semibold tracking-tight ">
             <span className="text-lightText dark:text-darkText">I&apos;m </span>

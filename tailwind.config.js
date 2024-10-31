@@ -11,6 +11,7 @@ export default {
       fontFamily: {
         mono: ['"JetBrains Mono"', "monospace"],
         sans: ['"Rubik"', "sans-serif"],
+        fancy: ['"Kumar One Outline"',],
       },
       colors: {
         primary: "#9333ea",
@@ -21,26 +22,11 @@ export default {
         darkText: "#f3f4f6",
       },
       screens: {
-        xs: "480px",
-        sm: "640px",
+        xs: "320px",
+        sm: "480px",
         md: "768px",
         lg: "1024px",
-        xl: "1280px",
-      },
-      spacing: {
-        72: "18rem",
-        84: "21rem",
-        96: "24rem",
-      },
-      boxShadow: {
-        card: "0 4px 6px rgba(0, 0, 0, 0.1)",
-        modal: "0 10px 15px rgba(0, 0, 0, 0.3)",
-      },
-      borderRadius: {
-        xl: "1rem",
-      },
-      maxWidth: {
-        "8xl": "1920px",
+        xl: "1440px",
       },
     },
   },

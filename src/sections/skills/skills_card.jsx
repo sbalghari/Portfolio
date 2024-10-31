@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useRef } from "react";
-import fallbackIcon from "../../assets/cpp.png";
+import fallbackIcon from "../../assets/icons/c.png";
 
 function SkillsCard({ title, skills }) {
   const cardRef = useRef(null);
@@ -25,19 +25,19 @@ function SkillsCard({ title, skills }) {
   return (
     <div
       ref={cardRef}
-      className="p-4 w-[500px] h-84 bg-white dark:bg-secondary shadow-lg rounded-xl transition-transform duration-500 ease-out"
+      className="lg:w-[500px] lg:h-auto bg-white dark:bg-secondary shadow-lg rounded-xl transition-transform duration-500 ease-out"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <h3 className="text-2xl py-6 font-semibold mb-2 text-center text-lightText dark:text-darkText">
+      <h3 className="text-2xl pt-6 font-semibold text-center text-lightText dark:text-darkText">
         {title}
       </h3>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-2 lg:gap-4 m-6 lg:m-6 pb-6">
         {skills.map((skill, index) => (
           <div
             key={index}
             className="flex items-center justify-center hover:cursor-pointer p-2 border border-gray-300 dark:border-gray-700 dark:hover:border-primary rounded-xl hover:border-primary hover:shadow-lg hover:scale-105 shadow-primary transition-all duration-300"
-            style={{ height: 'auto', minWidth: '120px' }}
+            style={{ height: 'auto', minWidth: 'auto' }}
           >
             <img
               src={skill.icon}

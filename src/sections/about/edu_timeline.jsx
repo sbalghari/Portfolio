@@ -4,19 +4,19 @@ const Timeline = () => {
       <ol className="items-center sm:flex">
         {[
           {
+            name: "High School - Grade: A",
             year: "March 2020 - Dec 2022",
-            name: "High School",
-            description: "I completed high school from Army Public School and College System, Skardu.",
+            description: "I completed high school from APSACS, Skardu.",
           },
           {
-            year: "March 2023 - Present",
             name: "College",
-            description: "I am currently a college student of Army Public School and College System, Skardu.",
+            year: "March 2023 - Present",
+            description: "I am currently a college student of APSACS, Skardu.",
           },
           {
-            year: "April 2022 - Present",
             name: "Online Learning",
-            description: "I am learning AI/ML through various online courses from websites like w3school, Khan Academy, Udemy, YouTube and etc.",
+            year: "April 2022 - Present",
+            description: "Learning AI/ML from websites like w3school, Khan Academy, YouTube, etc.",
           },
         ].map((item, index) => (
           <li key={index} className="relative mb-6 sm:mb-0 bg-transparent dark:bg-transparent">
@@ -35,9 +35,9 @@ const Timeline = () => {
               <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
             </div>
             <div className="mt-3 sm:pr-8">
-              <h3 className="text-lg font-semibold text-primary dark:text-primary">{item.year}</h3>
+              <h3 className="text-lg font-semibold text-primary dark:text-primary">{item.name}</h3>
               <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                {item.name}
+                {item.year}
               </time>
               <p className="text-base font-normal text-gray-500 dark:text-gray-400">{item.description}</p>
             </div>

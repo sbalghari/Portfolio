@@ -6,7 +6,7 @@ const Timeline = () => {
           {
             year: "March 2022 - Present",
             name: "Projects Development",
-            description: "I have built many projects in languages like Python, C++, etc and working on many others.",
+            description: "I have built many projects in languages like Python, C++, etc.",
           },
         ].map((item, index) => (
           <li key={index} className="relative mb-6 sm:mb-0 bg-transparent dark:bg-transparent">
@@ -25,9 +25,9 @@ const Timeline = () => {
               <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
             </div>
             <div className="mt-3 sm:pr-8">
-              <h3 className="text-lg font-semibold text-primary dark:text-primary">{item.year}</h3>
+              <h3 className="text-lg font-semibold text-primary dark:text-primary">{item.name}</h3>
               <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                {item.name}
+                {item.year}
               </time>
               <p className="text-base font-normal text-gray-500 dark:text-gray-400">{item.description}</p>
             </div>
