@@ -47,10 +47,10 @@ function HomeSection() {
   }, [words, typingSpeed, wordDelay]);
 
   return (
-    <section className="p-6 h-screen lg:p-12 w-auto bg-background dark:bg-darkBackground flex items-center justify-center font-sans">
+    <section className="p-2 sm:p-4 md:p-6 lg:p-12 h-screen bg-background dark:bg-darkBackground flex items-center justify-center font-sans">
       <div className="items-center mx-auto max-w-screen-xl md:grid md:grid-cols-2 sm:py-16 lg:px-6">
         <div
-          className="relative mx-auto w-96 h-96 rounded-full overflow-hidden"
+          className="relative mx-auto w-80 h-80 sm:h-96 sm:w-96 rounded-full overflow-hidden"
           onMouseMove={(e) => {
             const container = e.currentTarget;
             const rect = container.getBoundingClientRect();
@@ -62,25 +62,25 @@ function HomeSection() {
             e.currentTarget.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)";
           }}
         >
-          <div className="absolute inset-0 rounded-full p-4 transition-transform duration-500 ease-out">
+          <div className="absolute inset-4 sm:inset-2 md:inset-0 rounded-full p-6 transition-transform duration-500 ease-out">
             <img
-              className="w-full h-full rounded-full transition-transform duration-500 ease-out transform hover:scale-110"
+              className="w-auto h-auto rounded-full transition-transform duration-500 ease-out transform hover:scale-110"
               src={ProfilePic}
               alt="Profile picture"
             />
           </div>
         </div>
-        <div className="px-4 mt-0 lg:px-0 ">
+        <div className="px-4 mt-0 lg:px-0 justify-items-center md:justify-items-start">
           <h2 className="mb-2 font-mono text-sm tracking-tight font-bold text-lightText dark:text-darkText">
             Hello, World
             <span className={` ${blink ? "opacity-100" : "opacity-0"}`}>
               !
             </span>
           </h2> 
-          <h2 className="mb-2 text-4xl lg:text-5xl tracking-tight font-bold text-lightText dark:text-darkText">
+          <h2 className="mb-2 text-3xl sm:text-4xl lg:text-5xl tracking-tight font-bold text-lightText dark:text-darkText">
             <span className=" text-primary">Saifullah Balghari</span>
           </h2>
-          <h2 className="mb-2 text-2xl md:text-3xl font-semibold tracking-tight ">
+          <h2 className="mb-2 text-1xl sm:text-2xl md:text-3xl font-semibold tracking-tight ">
             <span className="text-lightText dark:text-darkText">I&apos;m </span>
             <span className="font-extrabold text-primary">{typingText}</span>
             <span className="cursor">|</span>
@@ -88,8 +88,8 @@ function HomeSection() {
 
           {/* Social Media Section */}
           <div className="mt-8">
-            <h3 className="text-m text-lightText dark:text-darkText font-semibold mb-4">
-              Let&apos;s Connect:
+            <h3 className="text-sm lg:text-md text-center md:text-start text-lightText dark:text-darkText font-semibold mb-4">
+              Let&apos;s Connect
             </h3>
             <div className="flex space-x-6 text-primary">
               <a href="https://github.com/Saifullah-Balghari" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">

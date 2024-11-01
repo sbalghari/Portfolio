@@ -1,8 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import logoLight from './assets/icons/logo_light.png';
 import logoDark from './assets/icons/logo_dark.png';
 
-function Header() {
+function Header( { onNavigate, homeRef, aboutRef, skillsRef, projectsRef } ) {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
   useEffect(() => {
     const lightSwitches = document.querySelectorAll(".light-switch");
     const darkMode = localStorage.getItem("dark-mode") === "true";
@@ -35,25 +38,59 @@ function Header() {
     });
   }, []);
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // Adjust if needed
+    };
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+          console.log("Intersecting with section:", entry.target.id); // Debug line
+        }
+      });
+    }, options);
+  
+    const sections = [homeRef, aboutRef, skillsRef, projectsRef];
+    sections.forEach((ref) => {
+      if (ref.current) observer.observe(ref.current);
+    });
+  
+    return () => {
+      sections.forEach((ref) => {
+        if (ref.current) observer.unobserve(ref.current);
+      });
+    };
+  }, [homeRef, aboutRef, skillsRef, projectsRef]);
+  
   return (
-    <header className="text-lightText dark:text-darkText font-sans bg-background dark:bg-darkBackground body-font">
+    <header className="sticky top-0 z-50 shadow-md text-lightText dark:text-darkText font-sans bg-background dark:bg-darkBackground body-font">
       {/* For sm and md */}
-      <div className="lg:hidden flex container mx-auto flex-wrap p-2 md:p-4 flex-col md:flex-row items-center bg-transparent">
+      <div className="lg:hidden w-auto h-[54px] flex p-2 justify-start">
         {/* Logo Section */}
-        <div className="flex items-center">
-        <img 
-          src={logoDark} 
-          alt="Logo" 
-          className="hidden dark:block w-20"
-        />
-        <img 
-          src={logoLight} 
-          alt="Logo" 
-          className="block dark:hidden w-20"
-        />
+        <div className="mr-auto" onClick={() => onNavigate(homeRef)}>
+          <img 
+            src={logoDark} 
+            alt="Logo" 
+            className="hidden dark:block w-[65px] h-[38px]"
+          />
+          <img 
+            src={logoLight} 
+            alt="Logo" 
+            className="block dark:hidden w-[65px] h-[38px]"
+          />
         </div>
-        <div className="flex flex-col justify-center ml-3">
-          <input
+
+        {/* Light/Dark Mode Switch */}
+        <div className="flex flex-col justify-center m-2">
+        <input
             type="checkbox"
             name="light-switch"
             className="light-switch sr-only"
@@ -93,38 +130,142 @@ function Header() {
             <span className="sr-only">Switch to light / dark version</span>
           </label>
         </div>
+
+        {/* Hamburger Icon */}
+        <button 
+          className="flex justify-center items-center border w-10 ml-2 rounded-lg border-primary"
+          onClick={toggleSidebar}
+          aria-label="Toggle sidebar"
+        >
+          {/* Custom Hamburger SVG */}
+          <svg 
+            className="w-6 h-6 text-primary" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Sidebar */}
+      <div 
+        className={`fixed inset-y-0 left-0 w-64 bg-background dark:bg-darkBackground transform ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out shadow-lg`}
+      >
+        <div className="flex flex-col p-4 h-full">
+          {/* Close Button */}
+          <button 
+            className="self-end mb-4 p-2"
+            onClick={toggleSidebar}
+            aria-label="Close sidebar"
+          >
+            {/* Custom Close SVG */}
+            <svg 
+              className="w-6 h-6 text-primary" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          {/* Sidebar Navigation */}
+          <nav className="flex flex-col space-y-6 mt-10">
+            <a onClick={() => onNavigate(homeRef)} className="text-lightText dark:text-darkText flex items-center text-lg font-semibold">
+              <svg className="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7h18M3 11h18M3 15h18M3 19h18"/></svg>
+              Home
+            </a>
+            <a onClick={() => onNavigate(aboutRef)} className="text-lightText dark:text-darkText flex items-center text-lg font-semibold">
+              <svg className="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 11c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zM19 20h-2v-2c0-1.105-.895-2-2-2h-4c-1.105 0-2 .895-2 2v2H5a2 2 0 00-2 2v2h18v-2a2 2 0 00-2-2z"/></svg>
+              About Me
+            </a>
+            <a onClick={() => onNavigate(skillsRef)} className="text-lightText dark:text-darkText flex items-center text-lg font-semibold">
+              <svg className="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+              My Skills
+            </a>
+            <a onClick={() => onNavigate(projectsRef)} className="text-lightText dark:text-darkText flex items-center text-lg font-semibold">
+              <svg className="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3v4c0 .6.4 1 1 1h16c.6 0 1-.4 1-1V3M3 17v4c0 .6.4 1 1 1h16c.6 0 1-.4 1-1v-4M3 11v2c0 .6.4 1 1 1h16c.6 0 1-.4 1-1v-2"/></svg>
+              Projects
+            </a>
+          </nav>
+        </div>
       </div>
       {/* For lg */}
-      <div className="hidden lg:flex container mx-auto flex-wrap p-3 flex-col md:flex-row items-center bg-transparent">
-        {/* Logo Section */}
-        <div className="flex items-center">
-        <img 
-          src={logoDark} 
-          alt="Logo" 
-          className="hidden dark:block w-20"
-        />
-        <img 
-          src={logoLight} 
-          alt="Logo" 
-          className="block dark:hidden w-20"
-        />
+      <div className="hidden lg:flex container mx-auto flex-wrap p-2 flex-col md:flex-row items-center bg-transparent">
+        <div className="flex items-center" onClick={() => onNavigate(homeRef)}>
+          <img 
+            src={logoDark} 
+            alt="Logo" 
+            className="hidden dark:block w-[70px] h-[40px]"
+          />
+          <img 
+            src={logoLight} 
+            alt="Logo" 
+            className="block dark:hidden w-[70px] h-[40px]"
+          />
         </div>
         <nav className="ml-auto flex flex-wrap items-end text-base justify-end h-5 bg-transparent">
-          <a className="relative mr-5 group hover:text-purple-500 hover:cursor-pointer">
+          <a
+            className={`relative mr-5 group cursor-pointer ${
+              activeSection === "home" ? "text-purple-500" : "hover:text-purple-500"
+            }`}
+            onClick={() => onNavigate(homeRef)}
+          >
             Home
-            <span className="block h-0.5 bg-purple-500 transition-all duration-300 scale-x-0 group-hover:scale-x-100"></span>
+            <span
+              className="block h-0.5 bg-purple-500 transition-transform duration-300"
+              style={{
+                transform: activeSection === "home" ? "scaleX(1)" : "scaleX(0)",
+              }}
+            ></span>
           </a>
-          <a className="relative mr-5 group hover:text-purple-500 hover:cursor-pointer">
+          <a
+            className={`relative mr-5 group cursor-pointer ${
+              activeSection === "about" ? "text-purple-500" : "hover:text-purple-500"
+            }`}
+            onClick={() => onNavigate(aboutRef)}
+          >
             About Me
-            <span className="block h-0.5 bg-purple-500 transition-all duration-300 scale-x-0 group-hover:scale-x-100"></span>
+            <span
+              className="block h-0.5 bg-purple-500 transition-transform duration-300"
+              style={{
+                transform: activeSection === "about" ? "scaleX(1)" : "scaleX(0)",
+              }}
+            ></span>
           </a>
-          <a className="relative mr-5 group hover:text-purple-500 hover:cursor-pointer">
+          <a
+            className={`relative mr-5 group cursor-pointer ${
+              activeSection === "skills" ? "text-purple-500" : "hover:text-purple-500"
+            }`}
+            onClick={() => onNavigate(skillsRef)}
+          >
             My Skills
-            <span className="block h-0.5 bg-purple-500 transition-all duration-300 scale-x-0 group-hover:scale-x-100"></span>
+            <span
+              className="block h-0.5 bg-purple-500 transition-transform duration-300"
+              style={{
+                transform: activeSection === "skills" ? "scaleX(1)" : "scaleX(0)",
+              }}
+            ></span>
           </a>
-          <a className="relative mr-5 group hover:text-purple-500 hover:cursor-pointer">
+          <a
+            className={`relative mr-5 group cursor-pointer ${
+              activeSection === "projects" ? "text-purple-500" : "hover:text-purple-500"
+            }`}
+            onClick={() => onNavigate(projectsRef)}
+          >
             Projects
-            <span className="block h-0.5 bg-purple-500 transition-all duration-300 scale-x-0 group-hover:scale-x-100"></span>
+            <span
+              className="block h-0.5 bg-purple-500 transition-transform duration-300"
+              style={{
+                transform: activeSection === "projects" ? "scaleX(1)" : "scaleX(0)",
+              }}
+            ></span>
           </a>
         </nav>
         <div className="flex flex-col justify-center ml-3">

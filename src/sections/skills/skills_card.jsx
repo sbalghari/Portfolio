@@ -25,7 +25,7 @@ function SkillsCard({ title, skills }) {
   return (
     <div
       ref={cardRef}
-      className="lg:w-[500px] lg:h-auto bg-white dark:bg-secondary shadow-lg rounded-xl transition-transform duration-500 ease-out"
+      className="hover:border hover:border-primary lg:w-[500px] lg:h-auto bg-white dark:bg-secondary shadow-lg rounded-xl transition-transform duration-500 ease-out"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

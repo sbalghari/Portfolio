@@ -19,7 +19,7 @@ import githubIcon from "../assets/icons/github.png";
 import linuxIcon from "../assets/icons/linux.png";
 import bashIcon from "../assets/icons/bash.png";
 import vscodeIcon from "../assets/icons/vscode.png";
-//import jupyter from "../assets/icons/jupyter.png";
+import jupyter from "../assets/icons/jupyter.png";
 
 export const skillsData = {
   frontEnd: [
@@ -43,7 +43,7 @@ export const skillsData = {
     { label: "Pandas", icon: pandasIcon },
     { label: "Numpy", icon: numpyIcon },
     { label: "Matplotlib", icon: matplotlibIcon },
-    //{ label: "Jupyter", icon: jupyter },
+    { label: "Jupyter Notebook", icon: jupyter },
   ],
   others: [
     { label: "Git", icon: gitIcon },
@@ -52,4 +52,5 @@ export const skillsData = {
     { label: "Bash", icon: bashIcon },
     { label: "VS Code", icon: vscodeIcon },
   ],
+  
 };
