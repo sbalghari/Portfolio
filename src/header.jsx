@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
-import logoLight from './assets/icons/logo_light.png';
-import logoDark from './assets/icons/logo_dark.png';
+import PropTypes from "prop-types";
+import logoLight from "./assets/logo_light.png";
+import logoDark from "./assets/logo_dark.png";
+import homeIcon from "./assets/ui_svg/home.svg"
+import aboutIcon from "./assets/ui_svg/about.svg"
+import skillsIcon from "./assets/ui_svg/skills.svg"
+import projectsIcon from "./assets/ui_svg/projects.svg"
 
-function Header( { onNavigate, homeRef, aboutRef, skillsRef, projectsRef } ) {
+function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -46,9 +51,9 @@ function Header( { onNavigate, homeRef, aboutRef, skillsRef, projectsRef } ) {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5, // Adjust if needed
+      threshold: 0.3,
     };
-  
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -57,40 +62,40 @@ function Header( { onNavigate, homeRef, aboutRef, skillsRef, projectsRef } ) {
         }
       });
     }, options);
-  
+
     const sections = [homeRef, aboutRef, skillsRef, projectsRef];
     sections.forEach((ref) => {
       if (ref.current) observer.observe(ref.current);
     });
-  
+
     return () => {
       sections.forEach((ref) => {
         if (ref.current) observer.unobserve(ref.current);
       });
     };
   }, [homeRef, aboutRef, skillsRef, projectsRef]);
-  
+
   return (
     <header className="sticky top-0 z-50 shadow-md text-lightText dark:text-darkText font-sans bg-background dark:bg-darkBackground body-font">
       {/* For sm and md */}
       <div className="lg:hidden w-auto h-[54px] flex p-2 justify-start">
         {/* Logo Section */}
         <div className="mr-auto" onClick={() => onNavigate(homeRef)}>
-          <img 
-            src={logoDark} 
-            alt="Logo" 
+          <img
+            src={logoDark}
+            alt="Logo"
             className="hidden dark:block w-[65px] h-[38px]"
           />
-          <img 
-            src={logoLight} 
-            alt="Logo" 
+          <img
+            src={logoLight}
+            alt="Logo"
             className="block dark:hidden w-[65px] h-[38px]"
           />
         </div>
 
         {/* Light/Dark Mode Switch */}
         <div className="flex flex-col justify-center m-2">
-        <input
+          <input
             type="checkbox"
             name="light-switch"
             className="light-switch sr-only"
@@ -132,66 +137,58 @@ function Header( { onNavigate, homeRef, aboutRef, skillsRef, projectsRef } ) {
         </div>
 
         {/* Hamburger Icon */}
-        <button 
-          className="flex justify-center items-center border w-10 ml-2 rounded-lg border-primary"
+        <button
+          className="flex justify-center items-center border-2 w-10 ml-2 rounded-lg border-primary"
           onClick={toggleSidebar}
           aria-label="Toggle sidebar"
         >
           {/* Custom Hamburger SVG */}
-          <svg 
-            className="w-6 h-6 text-primary" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24" 
+          <svg
+            className="w-6 h-6 text-primary"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
           </svg>
         </button>
       </div>
 
       {/* Sidebar */}
-      <div 
-        className={`fixed inset-y-0 left-0 w-64 bg-background dark:bg-darkBackground transform ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out shadow-lg`}
+      <div
+        className={`fixed left-0 w-52 inset-y-1 rounded-lg bg-background dark:bg-darkBackground transform ${
+          isSidebarOpen ? "translate-x-2" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out  p-0 h-12 w-56`}
       >
-        <div className="flex flex-col p-4 h-full">
-          {/* Close Button */}
-          <button 
-            className="self-end mb-4 p-2"
-            onClick={toggleSidebar}
-            aria-label="Close sidebar"
-          >
-            {/* Custom Close SVG */}
-            <svg 
-              className="w-6 h-6 text-primary" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-
+        <div className="flex flex-row-reverse ml-2 h-12 w-44">
+        
           {/* Sidebar Navigation */}
-          <nav className="flex flex-col space-y-6 mt-10">
-            <a onClick={() => onNavigate(homeRef)} className="text-lightText dark:text-darkText flex items-center text-lg font-semibold">
-              <svg className="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7h18M3 11h18M3 15h18M3 19h18"/></svg>
-              Home
+          <nav className="self-center flex space-x-6">
+            <a
+              onClick={() => onNavigate(homeRef)}
+              className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
+            ><img className="w-8" src={homeIcon}/>
             </a>
-            <a onClick={() => onNavigate(aboutRef)} className="text-lightText dark:text-darkText flex items-center text-lg font-semibold">
-              <svg className="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 11c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zM19 20h-2v-2c0-1.105-.895-2-2-2h-4c-1.105 0-2 .895-2 2v2H5a2 2 0 00-2 2v2h18v-2a2 2 0 00-2-2z"/></svg>
-              About Me
+            <a
+              onClick={() => onNavigate(aboutRef)}
+              className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
+            ><img className="w-8" src={aboutIcon}/>
             </a>
-            <a onClick={() => onNavigate(skillsRef)} className="text-lightText dark:text-darkText flex items-center text-lg font-semibold">
-              <svg className="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
-              My Skills
+            <a
+              onClick={() => onNavigate(skillsRef)}
+              className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
+            ><img className="w-8" src={skillsIcon}/>
             </a>
-            <a onClick={() => onNavigate(projectsRef)} className="text-lightText dark:text-darkText flex items-center text-lg font-semibold">
-              <svg className="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3v4c0 .6.4 1 1 1h16c.6 0 1-.4 1-1V3M3 17v4c0 .6.4 1 1 1h16c.6 0 1-.4 1-1v-4M3 11v2c0 .6.4 1 1 1h16c.6 0 1-.4 1-1v-2"/></svg>
-              Projects
+            <a
+              onClick={() => onNavigate(projectsRef)}
+              className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
+            ><img className="w-8" src={projectsIcon}/>
             </a>
           </nav>
         </div>
@@ -199,72 +196,68 @@ function Header( { onNavigate, homeRef, aboutRef, skillsRef, projectsRef } ) {
       {/* For lg */}
       <div className="hidden lg:flex container mx-auto flex-wrap p-2 flex-col md:flex-row items-center bg-transparent">
         <div className="flex items-center" onClick={() => onNavigate(homeRef)}>
-          <img 
-            src={logoDark} 
-            alt="Logo" 
+          <img
+            src={logoDark}
+            alt="Logo"
             className="hidden dark:block w-[70px] h-[40px]"
           />
-          <img 
-            src={logoLight} 
-            alt="Logo" 
+          <img
+            src={logoLight}
+            alt="Logo"
             className="block dark:hidden w-[70px] h-[40px]"
           />
         </div>
         <nav className="ml-auto flex flex-wrap items-end text-base justify-end h-5 bg-transparent">
           <a
-            className={`relative mr-5 group cursor-pointer ${
-              activeSection === "home" ? "text-purple-500" : "hover:text-purple-500"
+            className={`relative mr-5 group hover:text-purple-500 hover:cursor-pointer ${
+              activeSection === "home" ? "text-purple-500" : ""
             }`}
             onClick={() => onNavigate(homeRef)}
           >
             Home
             <span
-              className="block h-0.5 bg-purple-500 transition-transform duration-300"
-              style={{
-                transform: activeSection === "home" ? "scaleX(1)" : "scaleX(0)",
-              }}
+              className={`block h-0.5 bg-purple-500 transition-all duration-300 ${
+                activeSection === "home" ? "scale-x-100" : "scale-x-0"
+              }`}
             ></span>
           </a>
           <a
-            className={`relative mr-5 group cursor-pointer ${
-              activeSection === "about" ? "text-purple-500" : "hover:text-purple-500"
+            className={`relative mr-5 group hover:text-purple-500 hover:cursor-pointer ${
+              activeSection === "about" ? "text-purple-500" : ""
             }`}
             onClick={() => onNavigate(aboutRef)}
           >
             About Me
             <span
-              className="block h-0.5 bg-purple-500 transition-transform duration-300"
-              style={{
-                transform: activeSection === "about" ? "scaleX(1)" : "scaleX(0)",
-              }}
+              className={`block h-0.5 bg-purple-500 transition-all duration-300 ${
+                activeSection === "about" ? "scale-x-100" : "scale-x-0"
+              }`}
             ></span>
           </a>
           <a
-            className={`relative mr-5 group cursor-pointer ${
-              activeSection === "skills" ? "text-purple-500" : "hover:text-purple-500"
+            className={`relative mr-5 group hover:text-purple-500 hover:cursor-pointer ${
+              activeSection === "skills" ? "text-purple-500" : ""
             }`}
             onClick={() => onNavigate(skillsRef)}
           >
             My Skills
             <span
-              className="block h-0.5 bg-purple-500 transition-transform duration-300"
-              style={{
-                transform: activeSection === "skills" ? "scaleX(1)" : "scaleX(0)",
-              }}
+              className={`block h-0.5 bg-purple-500 transition-all duration-300 ${
+                activeSection === "skills" ? "scale-x-100" : "scale-x-0"
+              }`}
             ></span>
           </a>
           <a
-            className={`relative mr-5 group cursor-pointer ${
-              activeSection === "projects" ? "text-purple-500" : "hover:text-purple-500"
+            className={`relative mr-5 group hover:text-purple-500 hover:cursor-pointer ${
+              activeSection === "projects" ? "text-purple-500" : ""
             }`}
             onClick={() => onNavigate(projectsRef)}
           >
             Projects
             <span
-              className="block h-0.5 bg-purple-500 transition-transform duration-300"
-              style={{
-                transform: activeSection === "projects" ? "scaleX(1)" : "scaleX(0)",
-              }}
+              className={`block h-0.5 bg-purple-500 transition-all duration-300 ${
+                activeSection === "projects" ? "scale-x-100" : "scale-x-0"
+              }`}
             ></span>
           </a>
         </nav>
@@ -309,14 +302,35 @@ function Header( { onNavigate, homeRef, aboutRef, skillsRef, projectsRef } ) {
             <span className="sr-only">Switch to light / dark version</span>
           </label>
         </div>
-        <div className="px-3">
+        <div className="px-2">
           <a href="https://github.com/Saifullah-Balghari">
-            <button type="button" className="text-darkText bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-xl text-sm px-3 py-2 text-center me-0 mb-0">GitHub Profile</button>
+            <button
+              type="button"
+              className="text-darkText bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-xl text-sm px-3 py-2 text-center me-0 mb-0"
+            >
+              GitHub Profile
+            </button>
           </a>
         </div>
       </div>
     </header>
   );
 }
+
+Header.propTypes = {
+  onNavigate: PropTypes.func.isRequired,
+  homeRef: PropTypes.oneOfType([
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
+  aboutRef: PropTypes.oneOfType([
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
+  skillsRef: PropTypes.oneOfType([
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
+  projectsRef: PropTypes.oneOfType([
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
+};
 
 export default Header;

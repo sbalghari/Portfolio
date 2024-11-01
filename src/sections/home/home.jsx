@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
-import ProfilePic from "../../assets/icons/profilepic1.png";
+import ProfilePic from "../../assets/pic1.png";
 import { FaGithub, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa"; // FontAwesome Icons
 
 function HomeSection() {

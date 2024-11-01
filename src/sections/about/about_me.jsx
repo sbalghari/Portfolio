@@ -50,7 +50,7 @@ function AboutSection() {
               Experience:
             </h2>
           </div>
-          <div className="px-4 bg-background dark:bg-darkBackground rounded-lg p-4">
+          <div className="px-4 mb-8 bg-background dark:bg-darkBackground rounded-lg p-4">
             <ExpTimeline />
           </div>
         </div>

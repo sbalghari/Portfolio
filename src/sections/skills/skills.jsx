@@ -4,22 +4,18 @@ import SkillsCard from "./skills_card.jsx";
 function SkillsSection() {
   return (
     <section className="p-2 sm:p-4 md:p-6 lg:p-12 bg-background dark:bg-darkBackground font-sans">
-      <div className="flex justify-center mb-10">
-        <p className="relative p-4 inline-block ">
-          <span className="flex justify-center text-4xl font-bold text-primary dark:text-primary py-2">
-            My Skills
-          </span>
-          <span className="flex justify-center text-lg text-lightText dark:text-darkText py-0">
-            These are my skill, I&apos;ve been working on for the past 2 years.
-            </span>
+      <header className="flex flex-col items-center text-center mb-10">
+        <h2 className="text-4xl font-bold text-primary dark:text-primary py-2">
+          My Skills
+        </h2>
+        <p className="text-lg text-lightText dark:text-darkText">
+          These are my skills, I&apos;ve been working on for the past 2 years.
         </p>
-      </div>
-      <div className="justify-items-center md:grid-cols-2">
-        <div className="flex justify-center flex-col lg:flex-row gap-2 sm:gap-4 md:gap-6 sm:mb-4 md:mb-6 mb-2 lg:gap-12 lg:mb-12">
+      </header>
+      <div className="p-2 flex justify-center">
+        <div className="mb-8 grid gap-6 w-full max-w-screen-lg grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(450px,1fr))]">
           <SkillsCard title="Frontend Development" skills={skillsData.frontEnd} />
           <SkillsCard title="Backend Development" skills={skillsData.backEnd} />
-        </div>
-        <div className="flex justify-center flex-col lg:flex-row gap-2 sm:gap-4 md:gap-6 lg:gap-12 ">
           <SkillsCard title="AI/ML" skills={skillsData.ai} />
           <SkillsCard title="Others" skills={skillsData.others} />
         </div>

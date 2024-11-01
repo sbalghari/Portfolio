@@ -19,7 +19,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="overflow-y-auto max-h-screen w-screen scrollable-container">
       <HeaderSection 
         onNavigate={scrollToSection} 
         homeRef={homeRef} 
@@ -32,7 +32,7 @@ function App() {
       <div ref={skillsRef} id="skills"><SkillsSection /></div>
       <div ref={projectsRef} id="projects"><ProjectsSection /></div>
       <FooterSection />
-    </>
+    </div>
   );
 }
 
