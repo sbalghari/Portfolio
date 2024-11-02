@@ -19,18 +19,26 @@ function App() {
   };
 
   return (
-    <div className="overflow-y-auto max-h-screen w-screen scrollable-container">
+    <div className="overflow-y-auto h-screen w-screen relative scrollable-container bg-background dark:bg-darkBackground">
       <HeaderSection 
-        onNavigate={scrollToSection} 
-        homeRef={homeRef} 
+        onNavigate={scrollToSection}
+        homeRef={homeRef}
         aboutRef={aboutRef} 
         skillsRef={skillsRef} 
         projectsRef={projectsRef} 
       />
-      <div ref={homeRef} id="home"><HomeSection /></div>
-      <div ref={aboutRef} id="about"><AboutSection /></div>
-      <div ref={skillsRef} id="skills"><SkillsSection /></div>
-      <div ref={projectsRef} id="projects"><ProjectsSection /></div>
+      <div ref={homeRef} id="home" className="min-h-screen">
+        <HomeSection />
+      </div>
+      <div ref={aboutRef} id="about" className="min-h-screen">
+        <AboutSection />
+      </div>
+      <div ref={skillsRef} id="skills" className="min-h-screen">
+        <SkillsSection />
+      </div>
+      <div ref={projectsRef} id="projects" className="min-h-screen">
+        <ProjectsSection />
+      </div>
       <FooterSection />
     </div>
   );

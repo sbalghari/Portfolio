@@ -13,7 +13,15 @@ export default {
       fontFamily: {
         mono: ['"JetBrains Mono"', "monospace"],
         sans: ['"Rubik"', "sans-serif"],
-        fancy: ['"Kumar One Outline"',],
+        fancy: ['"Caveat"', "Kumar One Outline"],
+      },
+      animation: {
+        gradient: "gradient 8s linear infinite",
+      },
+      keyframes: {
+        gradient: {
+          to: { "background-position": "200% center" },
+        },
       },
       colors: {
         primary: "#9333ea",
@@ -24,8 +32,7 @@ export default {
         darkText: "#f3f4f6",
       },
       screens: {
-        xs: "320px",
-        sm: "375px",
+        sm: "425px",
         md: "768px",
         lg: "1024px",
         xl: "1366px",

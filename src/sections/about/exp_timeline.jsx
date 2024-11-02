@@ -1,37 +1,21 @@
+import { experienceData } from '../../data/experience.js'
 
 const Timeline = () => {
     return (
       <ol className="items-center lg:flex">
-        {[
-          {
-            year: "March 2022 - Present",
-            name: "Projects Development",
-            description: "I have built many projects in languages like Python, C++, etc.",
-          },
-        ].map((item, index) => (
-          <li key={index} className="relative mb-6 lg:mb-0 bg-transparent dark:bg-transparent">
-            <div className="flex items-center">
-              <div className="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 dark:bg-blue-900 sm:ring-8 dark:ring-secondary shrink-0">
-                <svg
-                  className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                </svg>
-              </div>
-              <div className="hidden lg:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-            </div>
-            <div className="mt-3 lg:pr-8">
-              <h3 className="text-xl font-semibold text-primary dark:text-primary">{item.name}</h3>
-              <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                {item.year}
-              </time>
-              <p className="text-base font-normal text-gray-500 dark:text-gray-400">{item.description}</p>
-            </div>
-          </li>
+        {experienceData.map((item, index) => (
+          <div key={index} className="relative pl-8 sm:pl-32 py-6 group">
+          <div className="font-fancy font-medium text-2xl text-primary mb-1 sm:mb-0">
+            {item.company}
+          </div>
+          <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+            <time className="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 mx-2 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
+              {item.year}
+            </time>
+            <div className="text-xl font-bold text-lightText dark:text-darkText">{item.position}</div>
+          </div>
+          <div className="text-gray-500 dark:text-gray-400">{item.description}</div>
+        </div>
         ))}
       </ol>
     );

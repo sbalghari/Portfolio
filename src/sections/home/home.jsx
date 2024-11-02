@@ -8,7 +8,14 @@ function HomeSection() {
   const typingSpeed = 200;
   const wordDelay = 1500;
 
-  const words = useMemo(() => ["a Full-Stack Developer", "a College Student", "an Aspiring ML Engineer"], []);
+  const words = useMemo(
+    () => [
+      "a Full-Stack Developer",
+      "a College Student",
+      "an Aspiring ML Engineer",
+    ],
+    []
+  );
 
   useEffect(() => {
     const blinkInterval = setInterval(() => {
@@ -47,7 +54,7 @@ function HomeSection() {
   }, [words, typingSpeed, wordDelay]);
 
   return (
-    <section className="p-2 sm:p-4 md:p-6 lg:p-12 h-screen bg-background dark:bg-darkBackground flex items-center justify-center font-sans">
+    <section className="p-2 sm:p-4 md:p-6 lg:p-12 h-screen bg-transparent dark:bg-transparent flex items-center justify-center font-sans">
       <div className="items-center mx-auto max-w-screen-xl md:grid md:grid-cols-2 sm:py-16 lg:px-6">
         <div
           className="relative mx-auto w-80 h-80 sm:h-96 sm:w-96 rounded-full overflow-hidden"
@@ -59,7 +66,8 @@ function HomeSection() {
             container.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg) scale(1.05)`;
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)";
+            e.currentTarget.style.transform =
+              "perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)";
           }}
         >
           <div className="absolute inset-4 sm:inset-2 md:inset-0 rounded-full p-6 transition-transform duration-500 ease-out">
@@ -73,12 +81,12 @@ function HomeSection() {
         <div className="px-4 mt-0 lg:px-0 justify-items-center md:justify-items-start">
           <h2 className="mb-2 font-mono text-sm tracking-tight font-bold text-lightText dark:text-darkText">
             Hello, World
-            <span className={` ${blink ? "opacity-100" : "opacity-0"}`}>
-              !
-            </span>
-          </h2> 
+            <span className={` ${blink ? "opacity-100" : "opacity-0"}`}>!</span>
+          </h2>
           <h2 className="mb-2 text-3xl sm:text-4xl lg:text-5xl tracking-tight font-bold text-lightText dark:text-darkText">
-            <span className=" text-primary">Saifullah Balghari</span>
+            <span className=" text-primary bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient">
+              Saifullah Balghari
+            </span>
           </h2>
           <h2 className="mb-2 text-1xl sm:text-2xl md:text-3xl font-semibold tracking-tight ">
             <span className="text-lightText dark:text-darkText">I&apos;m </span>
@@ -92,16 +100,36 @@ function HomeSection() {
               Let&apos;s Connect
             </h3>
             <div className="flex space-x-6 text-primary">
-              <a href="https://github.com/Saifullah-Balghari" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
+              <a
+                href="https://github.com/Saifullah-Balghari"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-indigo-500 transition-colors"
+              >
                 <FaGithub size={20} />
               </a>
-              <a href="https://www.instagram.com/saifullahbalghari/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-600 transition-colors">
+              <a
+                href="https://www.instagram.com/saifullahbalghari/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-pink-600 transition-colors"
+              >
                 <FaInstagram size={20} />
               </a>
-              <a href="https://www.facebook.com/Saifullah.BlghaRi/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">
+              <a
+                href="https://www.facebook.com/Saifullah.BlghaRi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-500 transition-colors"
+              >
                 <FaFacebook size={20} />
               </a>
-              <a href="https://www.linkedin.com/in/saifullah-balghari/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700 transition-colors">
+              <a
+                href="https://www.linkedin.com/in/saifullah-balghari/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-700 transition-colors"
+              >
                 <FaLinkedin size={20} />
               </a>
             </div>

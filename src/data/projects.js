@@ -10,6 +10,7 @@ export const projectsData = [
         Technologies_used: "Python, SQLite, Customtkinter",
         screenshot: screenshot1,
         Link: "https://github.com/Saifullah-Balghari/SERP-Manager",
+        filter: "Desktop"
     },
     {
         Name: "Calculator",
@@ -17,6 +18,7 @@ export const projectsData = [
         Technologies_used: "Python, Tkinter",
         screenshot: screenshot2,
         Link: "https://github.com/Saifullah-Balghari/Arithmetic-Calculater",
+        filter: "Desktop"
     },
     {
         Name: "Library Manager",
@@ -24,6 +26,7 @@ export const projectsData = [
         Technologies_used: "C++",
         screenshot: screenshot3,
         Link: "https://github.com/Saifullah-Balghari/LibraryManager",
+        filter: "Others"
     },
     {
         Name: "Portfolio Website",
@@ -31,5 +34,6 @@ export const projectsData = [
         Technologies_used: "ReactJS, TailwindCSS, JavaScript",
         screenshot: screenshot4,
         Link: "https://github.com/Saifullah-Balghari/Portfolio",
+        filter: "Web"
     },
 ];
