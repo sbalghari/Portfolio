@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 function ProjectCard({ data }) {
-    
+
     let skills = data.Technologies_used.split(",");
 
     return (

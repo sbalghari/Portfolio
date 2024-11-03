@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 import HeaderSection from "./header";
 import FooterSection from "./footer";
 import SkillsSection from "./sections/skills/skills";
@@ -15,17 +15,17 @@ function App() {
   const projectsRef = useRef(null);
 
   const scrollToSection = (sectionRef) => {
-    sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="overflow-y-auto h-screen w-screen relative scrollable-container bg-background dark:bg-darkBackground">
-      <HeaderSection 
+      <HeaderSection
         onNavigate={scrollToSection}
         homeRef={homeRef}
-        aboutRef={aboutRef} 
-        skillsRef={skillsRef} 
-        projectsRef={projectsRef} 
+        aboutRef={aboutRef}
+        skillsRef={skillsRef}
+        projectsRef={projectsRef}
       />
       <div ref={homeRef} id="home" className="min-h-screen">
         <HomeSection />

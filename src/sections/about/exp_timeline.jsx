@@ -1,10 +1,10 @@
-import { experienceData } from '../../data/experience.js'
+import { experienceData } from "../../data/experience.js";
 
 const Timeline = () => {
-    return (
-      <ol className="items-center lg:flex">
-        {experienceData.map((item, index) => (
-          <div key={index} className="relative pl-8 sm:pl-32 py-6 group">
+  return (
+    <ol className="items-center lg:flex">
+      {experienceData.map((item, index) => (
+        <div key={index} className="relative pl-8 sm:pl-32 py-6 group">
           <div className="font-fancy font-medium text-2xl text-primary mb-1 sm:mb-0">
             {item.company}
           </div>
@@ -12,13 +12,17 @@ const Timeline = () => {
             <time className="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 mx-2 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
               {item.year}
             </time>
-            <div className="text-xl font-bold text-lightText dark:text-darkText">{item.position}</div>
+            <div className="text-xl font-bold text-lightText dark:text-darkText">
+              {item.position}
+            </div>
           </div>
-          <div className="text-gray-500 dark:text-gray-400">{item.description}</div>
+          <div className="text-gray-500 dark:text-gray-400">
+            {item.description}
+          </div>
         </div>
-        ))}
-      </ol>
-    );
-  };
-  
-  export default Timeline;
+      ))}
+    </ol>
+  );
+};
+
+export default Timeline;

@@ -1,7 +1,7 @@
-import screenshot1 from '../assets/screenshot/serp.png';
-import screenshot2 from '../assets/screenshot/calc.png';
-import screenshot3 from '../assets/screenshot/libmngr.png';
-import screenshot4 from '../assets/screenshot/portfolio.png';
+import screenshot1 from '../assets/screenshots/serp.png';
+import screenshot2 from '../assets/screenshots/calc.png';
+import screenshot3 from '../assets/screenshots/libmngr.png';
+import screenshot4 from '../assets/screenshots/portfolio.png';
 
 export const projectsData = [
     {

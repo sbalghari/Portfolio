@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import logoLight from "./assets/logo_light.png";
 import logoDark from "./assets/logo_dark.png";
-import homeIcon from "./assets/ui_svg/home.svg"
-import aboutIcon from "./assets/ui_svg/about.svg"
-import skillsIcon from "./assets/ui_svg/skills.svg"
-import projectsIcon from "./assets/ui_svg/projects.svg"
+import homeIcon from "./assets/ui_svg/home.svg";
+import aboutIcon from "./assets/ui_svg/about.svg";
+import skillsIcon from "./assets/ui_svg/skills.svg";
+import projectsIcon from "./assets/ui_svg/projects.svg";
 
 function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  // Light/Dark Mode Toggle Logic
   useEffect(() => {
     const lightSwitches = document.querySelectorAll(".light-switch");
     const darkMode = localStorage.getItem("dark-mode") === "true";
@@ -43,10 +44,12 @@ function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
     });
   }, []);
 
+  // Sidebar Toggle Logic
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  // Highlights the active section's nav item on lg and xl
   useEffect(() => {
     const options = {
       root: null,
@@ -58,7 +61,6 @@ function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
-          console.log("Intersecting with section:", entry.target.id); // Debug line
         }
       });
     }, options);
@@ -77,9 +79,9 @@ function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
 
   return (
     <header className="sticky top-0 z-50 shadow-md text-lightText dark:text-darkText font-sans bg-background dark:bg-darkBackground body-font">
-      {/* For sm and md */}
+      {/* For xs, sm and md */}
       <div className="lg:hidden w-auto h-[54px] flex p-2 justify-start">
-        {/* Logo Section */}
+        {/* Logo */}
         <div className="mr-auto" onClick={() => onNavigate(homeRef)}>
           <img
             src={logoDark}
@@ -92,8 +94,7 @@ function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
             className="block dark:hidden w-[65px] h-[38px]"
           />
         </div>
-
-        {/* Light/Dark Mode Switch */}
+        {/* Light/Dark Mode Toggle */}
         <div className="flex flex-col justify-center m-2">
           <input
             type="checkbox"
@@ -135,14 +136,12 @@ function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
             <span className="sr-only">Switch to light / dark version</span>
           </label>
         </div>
-
-        {/* Hamburger Icon */}
+        {/* Sidebar Toggle */}
         <button
           className="flex justify-center items-center border-2 w-10 ml-2 rounded-lg border-primary"
           onClick={toggleSidebar}
           aria-label="Toggle sidebar"
         >
-          {/* Custom Hamburger SVG */}
           <svg
             className="w-6 h-6 text-primary"
             fill="none"
@@ -158,43 +157,47 @@ function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
             />
           </svg>
         </button>
-      </div>
-
-      {/* Sidebar */}
-      <div
-        className={`fixed left-0 w-52 inset-y-1 rounded-lg bg-background dark:bg-darkBackground transform ${
-          isSidebarOpen ? "translate-x-2" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out  p-0 h-12 w-56`}
-      >
-        <div className="flex flex-row-reverse ml-2 h-12 w-44">
-        
-          {/* Sidebar Navigation */}
-          <nav className="self-center flex space-x-6">
-            <a
-              onClick={() => onNavigate(homeRef)}
-              className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
-            ><img className="w-8" src={homeIcon}/>
-            </a>
-            <a
-              onClick={() => onNavigate(aboutRef)}
-              className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
-            ><img className="w-8" src={aboutIcon}/>
-            </a>
-            <a
-              onClick={() => onNavigate(skillsRef)}
-              className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
-            ><img className="w-8" src={skillsIcon}/>
-            </a>
-            <a
-              onClick={() => onNavigate(projectsRef)}
-              className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
-            ><img className="w-8" src={projectsIcon}/>
-            </a>
-          </nav>
+        {/* Sidebar */}
+        <div
+          className={`fixed left-0 w-52 inset-y-1 rounded-lg bg-background dark:bg-darkBackground transform ${
+            isSidebarOpen ? "translate-x-2" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out  p-0 h-12 w-56`}
+        >
+          {/* Sidebar Nav Items */}
+          <div className="flex flex-row-reverse ml-2 h-12 w-44">
+            <nav className="self-center flex space-x-6">
+              <a
+                onClick={() => onNavigate(homeRef)}
+                className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
+              >
+                <img className="w-8" src={homeIcon} />
+              </a>
+              <a
+                onClick={() => onNavigate(aboutRef)}
+                className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
+              >
+                <img className="w-8" src={aboutIcon} />
+              </a>
+              <a
+                onClick={() => onNavigate(skillsRef)}
+                className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
+              >
+                <img className="w-8" src={skillsIcon} />
+              </a>
+              <a
+                onClick={() => onNavigate(projectsRef)}
+                className="text-lightText dark:text-darkText flex items-center text-lg font-semibold"
+              >
+                <img className="w-8" src={projectsIcon} />
+              </a>
+            </nav>
+          </div>
         </div>
       </div>
-      {/* For lg */}
+
+      {/* For lg and xl */}
       <div className="hidden lg:flex container mx-auto flex-wrap p-2 flex-col md:flex-row items-center bg-transparent">
+        {/* Logo */}
         <div className="flex items-center" onClick={() => onNavigate(homeRef)}>
           <img
             src={logoDark}
@@ -207,6 +210,7 @@ function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
             className="block dark:hidden w-[70px] h-[40px]"
           />
         </div>
+        {/* Nav Items */}
         <nav className="ml-auto flex flex-wrap items-end text-base justify-end h-5 bg-transparent">
           <a
             className={`relative mr-5 group hover:text-purple-500 hover:cursor-pointer ${
@@ -261,6 +265,7 @@ function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
             ></span>
           </a>
         </nav>
+        {/* Light/Dark Mode Toggle */}
         <div className="flex flex-col justify-center ml-3">
           <input
             type="checkbox"
@@ -302,6 +307,7 @@ function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
             <span className="sr-only">Switch to light / dark version</span>
           </label>
         </div>
+        {/* Button */}
         <div className="px-2">
           <a href="https://github.com/Saifullah-Balghari">
             <button
@@ -317,6 +323,7 @@ function Header({ onNavigate, homeRef, aboutRef, skillsRef, projectsRef }) {
   );
 }
 
+// Props Validations
 Header.propTypes = {
   onNavigate: PropTypes.func.isRequired,
   homeRef: PropTypes.oneOfType([

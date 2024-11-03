@@ -12,9 +12,13 @@ const Timeline = () => {
             <time className="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 mx-2 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
               {item.year}
             </time>
-            <div className="text-xl font-bold text-lightText dark:text-darkText">{item.name}</div>
+            <div className="text-xl font-bold text-lightText dark:text-darkText">
+              {item.name}
+            </div>
           </div>
-          <div className="text-gray-500 dark:text-gray-400">{item.description}</div>
+          <div className="text-gray-500 dark:text-gray-400">
+            {item.description}
+          </div>
         </div>
       ))}
     </ol>

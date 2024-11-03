@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-/**@import url('https://fonts.googleapis.com/css2?family=Kumar+One+Outline&family=Rubik:wght@300..900&display=swap');*/
 
 export default {
   darkMode: "class",
@@ -32,7 +31,7 @@ export default {
         darkText: "#f3f4f6",
       },
       screens: {
-        sm: "425px",
+        sm: "400px",
         md: "768px",
         lg: "1024px",
         xl: "1366px",

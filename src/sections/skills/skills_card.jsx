@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
 import { useRef } from "react";
-import fallbackIcon from "../../assets/icons/c.png";
+import fallbackIcon from "../../assets/icons/404.png";
 
 function SkillsCard({ title, skills }) {
   const cardRef = useRef(null);
 
   const handleMouseMove = (e) => {
     if (cardRef.current) {
-      const { left, top, width, height } = cardRef.current.getBoundingClientRect();
+      const { left, top, width, height } =
+        cardRef.current.getBoundingClientRect();
       const x = e.clientX - (left + width / 2);
       const y = e.clientY - (top + height / 2);
       const tiltX = (y / height) * 15;
@@ -18,7 +19,7 @@ function SkillsCard({ title, skills }) {
 
   const handleMouseLeave = () => {
     if (cardRef.current) {
-      cardRef.current.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      cardRef.current.style.transform = "rotateX(0deg) rotateY(0deg)";
     }
   };
 

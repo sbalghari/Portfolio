@@ -52,6 +52,5 @@ function AboutSection() {
       </div>
     </section>
   );
-}300
-
+}
 export default AboutSection;
