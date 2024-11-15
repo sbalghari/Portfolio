@@ -14,14 +14,6 @@ export default {
         sans: ['"Rubik"', "sans-serif"],
         fancy: ['"Caveat"', "Kumar One Outline"],
       },
-      animation: {
-        gradient: "gradient 8s linear infinite",
-      },
-      keyframes: {
-        gradient: {
-          to: { "background-position": "200% center" },
-        },
-      },
       colors: {
         primary: "#9333ea",
         secondary: "#1f2937",
@@ -31,7 +23,7 @@ export default {
         darkText: "#f3f4f6",
       },
       screens: {
-        sm: "400px",
+        sm: "375px",
         md: "768px",
         lg: "1024px",
         xl: "1366px",

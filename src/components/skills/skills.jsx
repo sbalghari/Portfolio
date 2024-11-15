@@ -1,5 +1,5 @@
-import { skillsData } from "../../data/skills.js";
-import SkillsCard from "./skills_card.jsx";
+import SkillCardWithAnimation from "./SkillCardWithAnimation.jsx";
+import { skillsData } from "../../data/index.js";
 
 function SkillsSection() {
   return (
@@ -14,10 +14,9 @@ function SkillsSection() {
       </header>
       <div className="p-2 flex justify-center">
         <div className="mb-8 grid gap-6 lg:gap-12 justify-items-center w-full max-w-screen-lg grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(450px,1fr))]">
-          <SkillsCard title="Frontend Development" skills={skillsData.frontEnd} />
-          <SkillsCard title="Backend Development" skills={skillsData.backEnd} />
-          <SkillsCard title="AI/ML" skills={skillsData.ai} />
-          <SkillsCard title="Others" skills={skillsData.others} />
+          {Object.entries(skillsData).map(([key, skills]) => (
+            <SkillCardWithAnimation key={key} title={key} skills={skills} />
+          ))}
         </div>
       </div>
     </section>

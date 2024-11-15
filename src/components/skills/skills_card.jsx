@@ -7,13 +7,12 @@ function SkillsCard({ title, skills }) {
 
   const handleMouseMove = (e) => {
     if (cardRef.current) {
-      const { left, top, width, height } =
-        cardRef.current.getBoundingClientRect();
+      const { left, top, width, height } = cardRef.current.getBoundingClientRect();
       const x = e.clientX - (left + width / 2);
       const y = e.clientY - (top + height / 2);
-      const tiltX = (y / height) * 15;
-      const tiltY = (x / width) * 15;
-      cardRef.current.style.transform = `perspective(1000px) rotateY(${tiltX}deg) rotateX(${tiltY}deg) scale(1.05)`;
+      const tiltX = (y / height) * 10;
+      const tiltY = (x / width) * 10;
+      cardRef.current.style.transform = `perspective(1000px) rotateY(${tiltX}deg) rotateX(${tiltY}deg)`;
     }
   };
 
@@ -26,7 +25,7 @@ function SkillsCard({ title, skills }) {
   return (
     <div
       ref={cardRef}
-      className="hover:border hover:border-primary w-full md:w-[41 0px] lg:w-[500px] bg-white dark:bg-secondary shadow-lg rounded-xl transition-transform duration-500 ease-out"
+      className="hover:border hover:border-primary w-auto h-auto md:w-[450px] md:h-[300px] lg:w-[500px] lg:h-[300px] bg-white dark:bg-secondary shadow-lg rounded-xl transition-transform duration-500 ease-out"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -37,7 +36,7 @@ function SkillsCard({ title, skills }) {
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex items-center justify-center hover:cursor-pointer p-2 border border-gray-300 dark:border-gray-700 dark:hover:border-primary rounded-xl hover:border-primary hover:shadow-lg hover:scale-105 shadow-primary transition-all duration-300"
+            className="flex items-center justify-center hover:cursor-pointer p-2 border border-gray-300 dark:border-gray-700 dark:hover:border-primary rounded-xl hover:border-primary hover:shadow-lg shadow-primary transition-all duration-300"
           >
             <img
               src={skill.icon}
@@ -55,6 +54,7 @@ function SkillsCard({ title, skills }) {
   );
 }
 
+// Props Validation
 SkillsCard.propTypes = {
   title: PropTypes.string.isRequired,
   skills: PropTypes.arrayOf(

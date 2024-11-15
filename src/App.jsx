@@ -1,12 +1,11 @@
 import { useRef } from "react";
+
 import HeaderSection from "./header";
 import FooterSection from "./footer";
-import SkillsSection from "./sections/skills/skills";
-import AboutSection from "./sections/about/about_me";
-import HomeSection from "./sections/home/home";
-import ProjectsSection from "./sections/projects/projects";
-
-import "./index.css";
+import SkillsSection from "./components/skills/skills";
+import AboutSection from "./components/about/about_me";
+import HomeSection from "./components/home/home";
+import ProjectsSection from "./components/projects/projects";
 
 function App() {
   const homeRef = useRef(null);
@@ -19,7 +18,7 @@ function App() {
   };
 
   return (
-    <div className="overflow-y-auto h-screen w-screen relative scrollable-container bg-background dark:bg-darkBackground">
+    <div className="overflow-y-auto h-screen w-screen relative bg-background dark:bg-darkBackground">
       <HeaderSection
         onNavigate={scrollToSection}
         homeRef={homeRef}

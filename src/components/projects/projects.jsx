@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { projectsData } from "../../data/projects.js";
+import { projectsData } from "../../data/index.js";
 import ProjectCard from "./projects_card.jsx";
 
 function ProjectsSection() {

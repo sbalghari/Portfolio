@@ -1,5 +1,6 @@
 import EduTimeline from './edu_timeline';
 import ExpTimeline from './exp_timeline';
+import { About } from '../../data/index.js';
 
 function AboutSection() {
   return (
@@ -16,12 +17,7 @@ function AboutSection() {
         <div className="mt-8">
           <div className="">
           <p className="text-lg leading-relaxed text-gray-500 dark:text-gray-400">
-            <span className="block">
-              Hi, I&apos;m Saifullah Balghari based in <span className="font-semibold text-primary dark:text-white">Skardu, GB</span>, Pakistan. I am currently studying Computer Science from Army Public School and College System, Skardu.
-            </span>
-            <span className="block">
-              I&apos;ve learned various programming languages online. I have a strong foundation in <span className="font-semibold text-primary dark:text-white">Python</span> and it&apos;s simplicity and extensive libraries, makes it my favorite. I also know <span className="font-semibold text-primary dark:text-white">C++, JavaScript, SQL,</span> etc, and have an intermediate knowledge in CS concepts like <span className="font-semibold text-primary dark:text-white">DSA, DB, OS,</span> and <span className="font-semibold text-primary dark:text-white">VC</span>.
-            </span>
+            {About.description}
           </p>
           </div>
         </div>
